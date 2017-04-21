@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var narbonne = {lat: 43.1842770, lng: 3.0030780};
+        var montpellier = {lat: 43.6107690, lng: 3.8767160};
+        var perpignan  = {lat: 42.6886591, lng: 2.8948331999999937};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 8,
+          center: narbonne
+        });
+      var contentString = '<div id="content">'+
+          '<div id="siteNotice">'+
+          '</div>'+
+          '<h1 id="firstHeading" class="firstHeading">Narbonne</h1>'+
+          '<div id="bodyContent">'+
+          '<p>Narbonne</p>'+
+          '<p>Attribution: Narbonne, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+          'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+          '(last visited June 22, 2009).</p>'+
+          '</div>'+
+          '</div>';
+
+      var infowindow = new google.maps.InfoWindow({
+        content: contentString
+      });
+
+      var marker = new google.maps.Marker({
+        position: narbonne,
+        map: map,
+        title: 'Narbonne (Sud)'
+      });
+      marker.addListener('click', function() {
+        infowindow.open(map, marker);
+      });
+      var contentMontpellier = '<div id="content">'+
+          '<div id="siteNotice">'+
+          '</div>'+
+          '<h1 id="firstHeading" class="firstHeading">Montpellier</h1>'+
+          '<div id="bodyContent">'+
+          '<p>Le Nord.</p>'+
+          '<p>Attribution: Montpellier, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+          'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+          '(last visited June 22, 2009).</p>'+
+          '</div>'+
+          '</div>';
+
+      var infoMontpellier = new google.maps.InfoWindow({
+        content: contentMontpellier
+      });
+
+      var markerMontpellier = new google.maps.Marker({
+        position: montpellier,
+        map: map,
+        title: 'Montpellier (Nord)'
+      });
+      markerMontpellier.addListener('click', function() {
+        infoMontpellier.open(map, markerMontpellier);
+      });
+
+      var contentPerpignan = '<div id="content">'+
+          '<div id="siteNotice">'+
+          '</div>'+
+          '<h1 id="firstHeading" class="firstHeading">Narbonne</h1>'+
+          '<div id="bodyContent">'+
+          '<p>Narbonne</p>'+
+          '<p>Attribution: Narbonne, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+          'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+          '(last visited June 22, 2009).</p>'+
+          '</div>'+
+          '</div>';
+
+      var infoPerpignan = new google.maps.InfoWindow({
+        content: contentPerpignan
+      });
+
+      var markerPerpignan = new google.maps.Marker({
+        position: perpignan,
+        map: map,
+        title: 'Perpignan (Sud)'
+      });
+      marker.addListener('click', function() {
+        infoPerpignan.open(map, markerPerpignan);
+      });
+
+
+    // fin function initMap
+    }
+
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlJqS4lDtfHfFfXKOh3Hae9fPA7iSeFeo&callback=initMap"
+    async defer></script>
+  </body>
+</html>
